@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <!--  点击效果  -->
+    <item android:drawable="@drawable/item_selector_selected" android:state_pressed="true"></item>
+
+    <!--  未点击效果  -->
+    <item android:drawable="@drawable/item_selector_default" android:state_pressed="false"></item>
+
+</selector>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="75dp"
+    android:background="@drawable/list_selector"
+    android:dividerPadding="20dp"
+    android:orientation="vertical"
+    android:paddingLeft="6dip"
+    android:paddingRight="6dip"
+    android:paddingBottom="3dip">
+
+    <TextView
+        android:id="@+id/note_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="10dp"
+        android:paddingTop="10dp"
+        android:text="TextView"
+        android:textColor="@color/title_textColor"
+        android:textSize="23sp"
+        android:singleLine="true"/>
+
+    <TextView
+        android:id="@+id/note_time"
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:paddingLeft="10dp"
+        android:paddingTop="5dp"
+        android:text="TextView"
+        android:textSize="19dp"
+        android:singleLine="true"/>
+</LinearLayout>

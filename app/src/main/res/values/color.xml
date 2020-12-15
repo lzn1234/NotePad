@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="color_white">#FFFFFF</color>
+    <color name="noteBackground">#f2f2f2</color>
+
+    <color name="list_item_pressed">#DACDCD</color>
+    <color name="list_item_default">#ffffff</color>
+
+
+    <color name="title_textColor">#191919</color>
+</resources>
