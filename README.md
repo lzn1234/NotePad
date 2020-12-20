@@ -85,7 +85,7 @@ private static final String[] PROJECTION = new String[] {
             android:singleLine="true"/>
     </LinearLayout>
 ```
-<img src="https://github.com/lzn1234/AS_LAB/blob/master/images/lab4/1.png"  height="50" width="165"><br/>
+<img src="https://github.com/lzn1234/NotePad/blob/master/image/1.png"  height="50" width="165"><br/>
 
 
 
@@ -205,14 +205,14 @@ custom_action_bar_layout.xml
 ```
 
 效果截图：
-<img src="https://github.com/lzn1234/AS_LAB/blob/master/images/lab4/1.png"  height="330" width="165"><br/>
-<img src="https://github.com/lzn1234/AS_LAB/blob/master/images/lab4/1.png"  height="330" width="165"><br/>
+<img src="https://github.com/lzn1234/NotePad/blob/master/image/2.png"  height="330" width="165"><br/>
+<img src="https://github.com/lzn1234/NotePad/blob/master/image/3.png"  height="330" width="165"><br/>
 
 
 ## 一、界面美化
 
 效果截图
-<img src="https://github.com/lzn1234/AS_LAB/blob/master/images/lab4/1.png"  height="330" width="165"><br/>
+<img src="https://github.com/lzn1234/NotePad/blob/master/image/4.png"  height="330" width="165"><br/>
 
 ###列表项美化。
 
@@ -280,10 +280,47 @@ note_listview.xml添加按钮
         });
 ```
 
+###列表项点击效果
+
+设置列表项的背景为list_selector.xml
+
+list_selector.xml
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <!--  点击效果  -->
+    <item android:drawable="@drawable/item_selector_selected" android:state_pressed="true"></item>
+
+    <!--  未点击效果  -->
+    <item android:drawable="@drawable/item_selector_default" android:state_pressed="false"></item>
+
+</selector>
+```
+item_selector_selected.xml
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <solid android:color="@color/list_item_default"></solid>
+    <corners android:radius="7dp"></corners>
+</shape>
+```
+item_selector_default.xml
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <solid android:color="@color/list_item_pressed"></solid>
+    <corners android:radius="7dp"></corners>
+</shape>
+
+```
+
 
 ## 一、标记分类
 效果图：
-<img src="https://github.com/lzn1234/AS_LAB/blob/master/images/lab4/1.png"  height="330" width="165"><br/>
+选择分类
+<img src="https://github.com/lzn1234/NotePad/blob/master/image/6.png"  height="330" width="165"><br/>
+列表项对应颜色
+<img src="https://github.com/lzn1234/NotePad/blob/master/image/7.png"  height="330" width="165"><br/>
 
 
 ###数据库添加列
