@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/item"
     android:layout_width="match_parent"
     android:layout_height="75dp"
     android:background="@drawable/list_selector"
@@ -15,10 +16,10 @@
         android:layout_height="wrap_content"
         android:paddingLeft="10dp"
         android:paddingTop="10dp"
+        android:singleLine="true"
         android:text="TextView"
         android:textColor="@color/title_textColor"
-        android:textSize="23sp"
-        android:singleLine="true"/>
+        android:textSize="23sp" />
 
     <TextView
         android:id="@+id/note_time"
@@ -26,7 +27,7 @@
         android:layout_height="35dp"
         android:paddingLeft="10dp"
         android:paddingTop="5dp"
+        android:singleLine="true"
         android:text="TextView"
-        android:textSize="19dp"
-        android:singleLine="true"/>
+        android:textSize="19dp" />
 </LinearLayout>

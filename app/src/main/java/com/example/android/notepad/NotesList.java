@@ -19,6 +19,7 @@ package com.example.android.notepad;
 import com.example.android.notepad.NotePad;
 
 import android.annotation.SuppressLint;
+import android.annotation.TargetApi;
 import android.app.ActionBar;
 import android.app.ListActivity;
 import android.content.ClipboardManager;
@@ -28,11 +29,14 @@ import android.content.ContentUris;
 import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
+import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
+import android.support.v4.content.ContextCompat;
 import android.support.v4.view.MenuItemCompat;
 import android.util.Log;
 import android.view.ContextMenu;
@@ -45,6 +49,7 @@ import android.view.View;
 import android.view.ContextMenu.ContextMenuInfo;
 import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.SearchView;
 import android.widget.SimpleAdapter;
@@ -93,6 +98,7 @@ public class NotesList extends ListActivity implements SearchView.OnQueryTextLis
     private static final int COLUMN_INDEX_MODIFICATION_DATE = 3;
 
 
+    @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
     @SuppressLint("ResourceAsColor")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -193,6 +199,9 @@ public class NotesList extends ListActivity implements SearchView.OnQueryTextLis
                 startActivity(new Intent(Intent.ACTION_INSERT, getIntent().getData()));
             }
         });
+
+
+
     }
 
     /**
@@ -300,7 +309,10 @@ public class NotesList extends ListActivity implements SearchView.OnQueryTextLis
         switch (item.getItemId()) {
         case R.id.menu_paste:
         //粘贴按钮
-          startActivity(new Intent(Intent.ACTION_PASTE, getIntent().getData()));
+            ListView listView = (ListView) findViewById(android.R.id.list);
+            LinearLayout layout = (LinearLayout)getViewByPosition(0,listView);
+            layout.setBackgroundColor(Color.parseColor("#e7f2e5"));
+
           return true;
         default:
             return super.onOptionsItemSelected(item);
@@ -577,5 +589,18 @@ public class NotesList extends ListActivity implements SearchView.OnQueryTextLis
 
         adapter.notifyDataSetChanged();
         return false;
+    }
+
+    //根据position和listview获取某一项视图
+    private View getViewByPosition(int pos, ListView listView) {
+        final int firstListItemPosition = listView.getFirstVisiblePosition() ;
+        final int lastListItemPosition = firstListItemPosition + listView.getChildCount() - 1;
+
+        if (pos < firstListItemPosition || pos > lastListItemPosition) {
+            return listView.getAdapter().getView(pos, null, listView);
+        } else {
+            final int childIndex = pos - firstListItemPosition;
+            return listView.getChildAt(childIndex);
+        }
     }
 }
