@@ -91,7 +91,7 @@ private static final String[] PROJECTION = new String[] {
 
 ## 二、实现搜索
 
-###1.使用自定义actionBar
+1.使用自定义actionBar
 ```java
 public void initActionbar() {
 
@@ -153,7 +153,7 @@ custom_action_bar_layout.xml
 ```
 
 
-###2.继承SearchView.OnQueryTextListener并实现onQueryTextSubmit和onQueryTextChange来实现搜索监听
+2.继承SearchView.OnQueryTextListener并实现onQueryTextSubmit和onQueryTextChange来实现搜索监听
 ```java
     @Override
     public boolean onQueryTextSubmit(String s) {
@@ -204,14 +204,14 @@ custom_action_bar_layout.xml
     }
 ```
 
-效果截图：
+效果截图：<br/>
 <img src="https://github.com/lzn1234/NotePad/blob/master/image/2.png"  height="330" width="165"><br/>
 <img src="https://github.com/lzn1234/NotePad/blob/master/image/3.png"  height="330" width="165"><br/>
 
 
 ## 一、界面美化
 
-效果截图
+效果截图<br/>
 <img src="https://github.com/lzn1234/NotePad/blob/master/image/4.png"  height="330" width="165"><br/>
 
 ###列表项美化。
@@ -316,10 +316,10 @@ item_selector_default.xml
 
 
 ## 一、标记分类
-效果图：
-选择分类
+效果图：<br/>
+选择分类<br/>
 <img src="https://github.com/lzn1234/NotePad/blob/master/image/6.png"  height="330" width="165"><br/>
-列表项对应颜色
+列表项对应颜色<br/>
 <img src="https://github.com/lzn1234/NotePad/blob/master/image/7.png"  height="330" width="165"><br/>
 
 
