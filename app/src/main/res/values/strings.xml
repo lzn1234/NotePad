@@ -40,4 +40,13 @@
     <string name="error_title">Error</string>
     <string name="error_message">Error loading note</string>
     <string name="nothing_to_save">There is nothing to save</string>
+
+    <string name="title_search_hint">搜索笔记</string>
+
+    <string-array name="region">
+        <item>个人</item>
+        <item>生活</item>
+        <item>工作</item>
+        <item>生活</item>
+    </string-array>
 </resources>

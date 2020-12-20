@@ -159,6 +159,9 @@ public class NotePadProvider extends ContentProvider implements PipeDataWriter<C
                 NotePad.Notes.COLUMN_NAME_MODIFICATION_DATE,
                 NotePad.Notes.COLUMN_NAME_MODIFICATION_DATE);
 
+        sNotesProjectionMap.put(
+                NotePad.Notes.COLUMN_NAME_TAG,
+                NotePad.Notes.COLUMN_NAME_TAG);
         /*
          * Creates an initializes a projection map for handling Live Folders
          */
@@ -197,7 +200,8 @@ public class NotePadProvider extends ContentProvider implements PipeDataWriter<C
                    + NotePad.Notes.COLUMN_NAME_TITLE + " TEXT,"
                    + NotePad.Notes.COLUMN_NAME_NOTE + " TEXT,"
                    + NotePad.Notes.COLUMN_NAME_CREATE_DATE + " INTEGER,"
-                   + NotePad.Notes.COLUMN_NAME_MODIFICATION_DATE + " INTEGER"
+                   + NotePad.Notes.COLUMN_NAME_MODIFICATION_DATE + " INTEGER,"
+                   + NotePad.Notes.COLUMN_NAME_TAG + " INTEGER"
                    + ");");
        }
 
@@ -225,8 +229,6 @@ public class NotePadProvider extends ContentProvider implements PipeDataWriter<C
    @Override
    public boolean onCreate() {
 
-       Log.v("123","4");
-
        // 创建一个新的助手对象。请注意，数据库本身不会被打开，直到有人试图访问它，并且只有当它不存在时才会创建它。
        mOpenHelper = new DatabaseHelper(getContext());
 
@@ -245,7 +247,6 @@ public class NotePadProvider extends ContentProvider implements PipeDataWriter<C
    @Override
    public Cursor query(Uri uri, String[] projection, String selection, String[] selectionArgs,
            String sortOrder) {
-       Log.v("123","2");
        // 构造一个新的查询生成器并设置其表名
        SQLiteQueryBuilder qb = new SQLiteQueryBuilder();
        qb.setTables(NotePad.Notes.TABLE_NAME);
@@ -330,8 +331,6 @@ public class NotePadProvider extends ContentProvider implements PipeDataWriter<C
         * Chooses the MIME type based on the incoming URI pattern
         */
 
-       Log.v("123","getType方法");
-
        switch (sUriMatcher.match(uri)) {
 
            // If the pattern is for notes or live folders, returns the general content type.
@@ -372,7 +371,7 @@ public class NotePadProvider extends ContentProvider implements PipeDataWriter<C
         /**
          *  Chooses the data stream type based on the incoming URI pattern.
          */
-        Log.v("123","getStreamTypes方法");
+
         switch (sUriMatcher.match(uri)) {
 
             // If the pattern is for notes or live folders, return null. Data streams are not
@@ -496,6 +495,7 @@ public class NotePadProvider extends ContentProvider implements PipeDataWriter<C
      */
     @Override
     public Uri insert(Uri uri, ContentValues initialValues) {
+        Log.v("123","insert");
 
         // Validates the incoming URI. Only the full provider URI is allowed for inserts.
         if (sUriMatcher.match(uri) != NOTES) {
@@ -537,6 +537,10 @@ public class NotePadProvider extends ContentProvider implements PipeDataWriter<C
         // If the values map doesn't contain note text, sets the value to an empty string.
         if (values.containsKey(NotePad.Notes.COLUMN_NAME_NOTE) == false) {
             values.put(NotePad.Notes.COLUMN_NAME_NOTE, "");
+        }
+
+        if (values.containsKey(NotePad.Notes.COLUMN_NAME_TAG) == false) {
+            values.put(NotePad.Notes.COLUMN_NAME_TAG, 1);
         }
 
         // Opens the database object in "write" mode.
@@ -671,7 +675,7 @@ public class NotePadProvider extends ContentProvider implements PipeDataWriter<C
         SQLiteDatabase db = mOpenHelper.getWritableDatabase();
         int count;
         String finalWhere;
-
+        Log.v("123","update");
         // Does the update based on the incoming URI pattern
         switch (sUriMatcher.match(uri)) {
 

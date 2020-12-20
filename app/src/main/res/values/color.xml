@@ -3,9 +3,17 @@
     <color name="color_white">#FFFFFF</color>
     <color name="noteBackground">#f2f2f2</color>
 
+    <!--列表项点击和非点击颜色-->
     <color name="list_item_pressed">#DACDCD</color>
     <color name="list_item_default">#ffffff</color>
 
+    <!--  活动条背景颜色  -->
+    <color name="bg_actioBar">#64c1bb</color>
 
+    <!--标题字体颜色-->
     <color name="title_textColor">#191919</color>
+
+
+    <!--搜索框的输入字体颜色-->
+    <color name="search_textColor">#191919</color>
 </resources>

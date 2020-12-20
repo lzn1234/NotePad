@@ -87,6 +87,7 @@ public class TitleEditor extends Activity {
          * android.content.AsyncQueryHandler or android.os.AsyncTask.
          */
 
+
         mCursor = managedQuery(
             mUri,        // The URI for the note that is to be retrieved.
             PROJECTION,  // The columns to retrieve

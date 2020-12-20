@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="searchStyle">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColorHint">#5e5e5e</item>
+    </style>
+
+
+</resources>

@@ -16,6 +16,7 @@
 
 package com.example.android.notepad;
 
+import android.app.ActionBar;
 import android.app.Activity;
 import android.content.ClipData;
 import android.content.ClipboardManager;
@@ -27,16 +28,23 @@ import android.content.Intent;
 import android.content.res.Resources;
 import android.database.Cursor;
 import android.graphics.Canvas;
+import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Rect;
+import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.AttributeSet;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.EditText;
+import android.annotation.SuppressLint;
+import android.widget.SearchView;
+import android.widget.TextView;
 
 /**
  * This Activity handles "editing" a note, where editing is responding to
@@ -81,6 +89,7 @@ public class NoteEditor extends Activity {
     /**
      * Defines a custom EditText View that draws lines between each line of text that is displayed.
      */
+    @SuppressLint("AppCompatCustomView")
     public static class LinedEditText extends EditText {
         private Rect mRect;
         private Paint mPaint;
@@ -143,7 +152,10 @@ public class NoteEditor extends Activity {
          * Creates an Intent to use when the Activity object's result is sent back to the
          * caller.
          */
-        final Intent intent = getIntent();
+        final Intent intent = getIntent()
+                ;
+
+        initActionbar();
 
         /*
          *  Sets up for the edit, based on the action specified for the incoming Intent.
@@ -237,6 +249,24 @@ public class NoteEditor extends Activity {
         }
     }
 
+
+
+    public void initActionbar() {
+
+
+        // 自定义标题栏
+//        getActionBar().setDisplayShowHomeEnabled(false);
+//        getActionBar().setDisplayShowTitleEnabled(false);
+//        getActionBar().setDisplayShowCustomEnabled(true);
+
+        //设置背景条颜色
+        int color = Color.parseColor("#64c1bb");
+        ColorDrawable drawable = new ColorDrawable(color);
+        getActionBar().setBackgroundDrawable(drawable);
+    }
+
+
+
     /**
      * This method is called when the Activity is about to come to the foreground. This happens
      * when the Activity comes to the top of the task stack, OR when it is first starting.
@@ -245,6 +275,9 @@ public class NoteEditor extends Activity {
      * the user, puts the note contents into the TextView, and saves the original text as a
      * backup.
      */
+
+
+
     @Override
     protected void onResume() {
         super.onResume();
@@ -526,8 +559,8 @@ public class NoteEditor extends Activity {
         // Sets up a map to contain values to be updated in the provider.
         ContentValues values = new ContentValues();
         values.put(NotePad.Notes.COLUMN_NAME_MODIFICATION_DATE, System.currentTimeMillis());
-
-        // If the action is to insert a new note, this creates an initial title for it.
+        values.put(NotePad.Notes.COLUMN_NAME_TAG, 1);
+        // 如果操作是插入一个note，这将为它创建一个初始标题。
         if (mState == STATE_INSERT) {
 
             // If no title was provided as an argument, create one from the note text.
@@ -576,8 +609,6 @@ public class NoteEditor extends Activity {
                 null,    // No selection criteria are used, so no where columns are necessary.
                 null     // No where columns are used, so no where arguments are necessary.
             );
-
-
     }
 
     /**

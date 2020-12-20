@@ -50,6 +50,8 @@ public final class NotePad {
         public static final String COLUMN_NAME_NOTE = "note";       //内容
         public static final String COLUMN_NAME_CREATE_DATE = "created";     //创建日期
         public static final String COLUMN_NAME_MODIFICATION_DATE = "modified";      //修改日期
+        public static final String COLUMN_NAME_TAG = "tag";      //标记
+
 
         /**
          * The scheme part for this provider's URI
