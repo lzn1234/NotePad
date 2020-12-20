@@ -2,8 +2,7 @@
 
 ## 一、实现时间戳
 
-### 修改代码
-1.添加映射
+### 1.添加映射
 ```java
 private static final String[] PROJECTION = new String[] {
             NotePad.Notes._ID, // 0
@@ -12,7 +11,7 @@ private static final String[] PROJECTION = new String[] {
             NotePad.Notes.COLUMN_NAME_TAG //4
     };
 ```
-2.修改适配器为simpleAdapter,并对取出的事件戳数据进行修改
+### 2.修改适配器为simpleAdapter,并对取出的事件戳数据进行修改
 ```java
 //便利Cursor并处理数据放入容器中
            listItems = new ArrayList<>();
@@ -39,7 +38,7 @@ private static final String[] PROJECTION = new String[] {
          adapter = new SimpleAdapter(this,listItems,R.layout.noteslist_item,dataColumns,viewIDs);
 ```
 
-3.时间戳处理部分
+### 3.时间戳处理部分
 ```java
     public String timeTransfer(String timeStamp)
     {
@@ -50,7 +49,7 @@ private static final String[] PROJECTION = new String[] {
     }
 ```
 
-4.修改对应的xml文件
+### 4.修改对应的xml文件
 ```xml
     <?xml version="1.0" encoding="utf-8"?>
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -91,7 +90,7 @@ private static final String[] PROJECTION = new String[] {
 
 ## 二、实现搜索
 
-1.使用自定义actionBar
+### 1.使用自定义actionBar
 ```java
 public void initActionbar() {
 
@@ -153,7 +152,7 @@ custom_action_bar_layout.xml
 ```
 
 
-2.继承SearchView.OnQueryTextListener并实现onQueryTextSubmit和onQueryTextChange来实现搜索监听
+### 2.继承SearchView.OnQueryTextListener并实现onQueryTextSubmit和onQueryTextChange来实现搜索监听
 ```java
     @Override
     public boolean onQueryTextSubmit(String s) {
@@ -350,12 +349,12 @@ public static final String COLUMN_NAME_TAG = "tag";      //标记
         android:layout_marginLeft="200dp"
         android:entries="@array/region" />
 ```
-将tag数据已整形数据添加到数据库中
+### 将tag数据已整形数据添加到数据库中
 ```java
 values.put(NotePad.Notes.COLUMN_NAME_TAG, 1);
 ```
 
-数据加载时根据tag修改列表项背景
+### 数据加载时根据tag修改列表项背景
 ```java
     //根据position和listview获取某一项视图
     private View getViewByPosition(int pos, ListView listView) {
