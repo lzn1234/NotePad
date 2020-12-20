@@ -209,12 +209,12 @@ custom_action_bar_layout.xml
 <img src="https://github.com/lzn1234/NotePad/blob/master/image/3.png"  height="330" width="165"><br/>
 
 
-## 一、界面美化
+## 三、界面美化
 
 效果截图<br/>
 <img src="https://github.com/lzn1234/NotePad/blob/master/image/4.png"  height="330" width="165"><br/>
 
-###列表项美化。
+### 1.列表项美化。
 
 使用自定义xml布局和隐藏滚动条
 ```java
@@ -265,7 +265,7 @@ note_listview.xml
 </RelativeLayout>
 ```
 
-###悬浮按钮
+### 2.悬浮按钮
 note_listview.xml添加按钮
 
 按钮的点击事件
@@ -280,7 +280,7 @@ note_listview.xml添加按钮
         });
 ```
 
-###列表项点击效果
+### 3.列表项点击效果
 
 设置列表项的背景为list_selector.xml
 
@@ -315,7 +315,7 @@ item_selector_default.xml
 ```
 
 
-## 一、标记分类
+## 四、标记分类
 效果图：<br/>
 选择分类<br/>
 <img src="https://github.com/lzn1234/NotePad/blob/master/image/6.png"  height="330" width="165"><br/>
@@ -323,7 +323,7 @@ item_selector_default.xml
 <img src="https://github.com/lzn1234/NotePad/blob/master/image/7.png"  height="330" width="165"><br/>
 
 
-###数据库添加列
+### 数据库添加列
 ```java
 public static final String COLUMN_NAME_TAG = "tag";      //标记
 ```
@@ -341,7 +341,7 @@ public static final String COLUMN_NAME_TAG = "tag";      //标记
        }
 ```
 
-###添加spinner控件
+### 添加spinner控件
 ```xml
     <Spinner
         android:id="@+id/spinner"
