@@ -214,7 +214,7 @@ custom_action_bar_layout.xml
 效果截图
 <img src="https://github.com/lzn1234/AS_LAB/blob/master/images/lab4/1.png"  height="330" width="165"><br/>
 
-###列表项美化
+###列表项美化。
 
 使用自定义xml布局和隐藏滚动条
 ```java
